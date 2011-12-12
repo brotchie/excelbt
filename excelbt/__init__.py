@@ -1,1 +1,1 @@
-from vbide import COMPONENT_EXTENSION_MAP
+from export import export_vba_components
