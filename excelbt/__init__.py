@@ -1,0 +1,1 @@
+from vbide import COMPONENT_EXTENSION_MAP
