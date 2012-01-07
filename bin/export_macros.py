@@ -8,6 +8,7 @@ import sys
 import argparse
 import logging
 
+from win32com.client import Dispatch
 from excelbt import export_vba_components
 
 if __name__ == '__main__':
@@ -21,7 +22,10 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     try:
-        export_vba_components(args.workbook, args.destination)
+        xl = Dispatch('Excel.Application')
+        workbook = xl.Workbooks.Open(args.workbook)
+        export_vba_components(workbook, args.destination)
+        xl.Quit()
     except StandardError, e:
         log.error('Failed to export VBA components. Reason: %s', str(e))
         sys.exit(1)
