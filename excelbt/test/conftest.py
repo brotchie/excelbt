@@ -1,6 +1,5 @@
-from win32com.client import Dispatch
-
 def pytest_funcarg__xl(request):
+    from win32com.client import Dispatch
     xl = Dispatch('Excel.Application')
 
     def finalize():

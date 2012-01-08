@@ -1,5 +1,7 @@
-import os
+import py.test
+py.test.importorskip('win32com')
 
+import os
 from excelbt.export import export_vba_components
 
 DATAPATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')

@@ -1,3 +1,6 @@
+import py.test
+py.test.importorskip('win32com')
+
 from excelbt.imports import import_vba_component
 
 def test_import_vba_component(tmpdir, xl):
